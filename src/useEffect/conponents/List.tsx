@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {ListProps} from "../models";
 
 const List : React.FC<ListProps> = ({ onSelect, active,  users }) => {

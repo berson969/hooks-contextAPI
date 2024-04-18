@@ -5,10 +5,11 @@ export interface UserType {
 
 export interface ListProps {
 	onSelect: (id: number) => void;
+	active: number | null;
 	users: UserType[];
 }
 
-export interface DetailsProps {
+export interface DetailProps {
 	info: {
 		id: number;
 		name: string;

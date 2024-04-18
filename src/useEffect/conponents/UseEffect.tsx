@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import List from "./List.tsx";
 import Details from "./Details.tsx";
-import {UserType} from "../models";
+import {DetailProps, UserType} from "../models";
 
 
 
 const UseEffect: React.FC = () => {
 	const [users, setUsers] = useState<UserType[]>([])
-	const [selectedUserId, setSelectedUserId] = useState(null);
-	const [selectedUser, setSelectedUser] = useState<UserType | null>(null);
+	const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
+	const [selectedUser, setSelectedUser] = useState<DetailProps | null>(null);
 	const [loading, setLoading] = useState<boolean>(true);
 
 
@@ -19,7 +19,7 @@ const UseEffect: React.FC = () => {
 
 	useEffect(() => {
 		if (selectedUserId !== null) {
-			fetchData(selectedUserId)
+			fetchData(selectedUserId.toString())
 		}
 	}, [selectedUserId]);
 
@@ -43,7 +43,7 @@ const UseEffect: React.FC = () => {
 			setLoading(false);
 		}
 	}
-	const handleSelectUser = (id) => {
+	const handleSelectUser = (id: number) => {
 		setSelectedUserId(id);
 	};
 
